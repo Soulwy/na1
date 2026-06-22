@@ -1,0 +1,511 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+    background: #f7f9fc;
+    padding: 20px;
+    transition: background 0.3s;
+}
+
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+/* ===== ХЭДЕР ===== */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+h1 {
+    font-size: 1.8rem;
+    color: #1e2a3e;
+}
+
+.header-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background 0.2s;
+}
+
+.theme-toggle:hover {
+    background: #e2e8f0;
+}
+
+.btn-add {
+    background: #2c7da0;
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 40px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-add:hover {
+    background: #1f5e7a;
+    transform: scale(1.02);
+}
+
+/* ===== СТАТИСТИКА ===== */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.stat-card {
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: transform 0.2s;
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2c7da0;
+}
+
+.stat-label {
+    color: #64748b;
+    font-size: 0.85rem;
+    margin-top: 4px;
+}
+
+/* ===== ФИЛЬТР ===== */
+.filter-bar {
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.filter-select {
+    padding: 10px 20px;
+    border-radius: 40px;
+    border: 1px solid #cbd5e1;
+    background: white;
+    font-size: 0.9rem;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    padding-right: 40px;
+}
+
+.filter-select:hover {
+    border-color: #2c7da0;
+}
+
+.filter-select:focus {
+    outline: none;
+    border-color: #2c7da0;
+    box-shadow: 0 0 0 3px rgba(44, 125, 160, 0.1);
+}
+
+/* ===== СЕТКА КАРТОЧЕК ===== */
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+}
+
+/* ===== КАРТОЧКА КНИГИ ===== */
+.book-card {
+    background: white;
+    border-radius: 20px;
+    overflow: visible;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+}
+
+.book-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+.book-card.favorite {
+    border-left: 4px solid #f5b042;
+}
+
+.book-cover {
+    height: 100px;
+    background: linear-gradient(135deg, #eef2f5 0%, #e2e8f0 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    border-radius: 20px 20px 0 0;
+}
+
+.book-info {
+    padding: 16px;
+}
+
+.book-title {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+    color: #0f172a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.book-author {
+    color: #64748b;
+    font-size: 0.8rem;
+    margin-bottom: 12px;
+}
+
+/* Прогресс-бар */
+.progress-bar-container {
+    background: #e2e8f0;
+    border-radius: 10px;
+    height: 8px;
+    margin: 12px 0;
+    overflow: hidden;
+}
+
+.progress-fill {
+    background: #2c7da0;
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.3s;
+}
+
+.book-stats {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: #64748b;
+    margin-bottom: 8px;
+}
+
+/* ===== КНОПКИ СТАТУСА ===== */
+.status-buttons-group {
+    display: flex;
+    gap: 8px;
+    margin: 12px 0;
+}
+
+.status-btn {
+    flex: 1;
+    padding: 8px 0;
+    border-radius: 30px;
+    border: none;
+    background: #f1f5f9;
+    font-weight: 600;
+    font-size: 0.7rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: #1e293b;
+}
+
+.status-btn:hover {
+    background: #e2e8f0;
+}
+
+.status-btn.active {
+    background: #2c7da0;
+    color: white;
+}
+
+.status-btn[data-status="completed"].active {
+    background: #2e7d32;
+}
+
+/* ===== МЕНЮ ⋮ ===== */
+.book-actions-menu {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 8px;
+}
+
+.menu-dots-btn {
+    background: none;
+    border: none;
+    font-size: 1.3rem;
+    cursor: pointer;
+    padding: 4px 12px;
+    border-radius: 20px;
+    color: #64748b;
+    transition: background 0.2s;
+}
+
+.menu-dots-btn:hover {
+    background: #f1f5f9;
+}
+
+.dropdown-actions {
+    position: absolute;
+    right: 0;
+    top: 35px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    display: none;
+    z-index: 9999;
+    min-width: 150px;
+    overflow: hidden;
+}
+
+.dropdown-actions.show {
+    display: block;
+}
+
+.dropdown-actions button {
+    width: 100%;
+    padding: 10px 16px;
+    text-align: left;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: background 0.2s;
+}
+
+.dropdown-actions button:hover {
+    background: #f1f5f9;
+}
+
+/* ===== ПЛАВАЮЩАЯ КНОПКА ===== */
+.fab {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 56px;
+    height: 56px;
+    border-radius: 28px;
+    background: #2c7da0;
+    color: white;
+    border: none;
+    font-size: 24px;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    cursor: pointer;
+    display: none;
+    z-index: 99;
+    transition: transform 0.2s;
+}
+
+.fab:hover {
+    transform: scale(1.05);
+}
+
+/* ===== МОДАЛЬНОЕ ОКНО ===== */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+}
+
+.modal-content {
+    background: white;
+    max-width: 500px;
+    width: 90%;
+    border-radius: 28px;
+    overflow: hidden;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.modal-header h2 {
+    font-size: 1.3rem;
+}
+
+.close {
+    font-size: 28px;
+    cursor: pointer;
+    color: #94a3b8;
+}
+
+.close:hover {
+    color: #1e293b;
+}
+
+#bookForm {
+    padding: 24px;
+}
+
+#bookForm input,
+#bookForm select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 16px;
+    border: 1px solid #cbd5e1;
+    border-radius: 16px;
+    font-size: 0.9rem;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.checkbox-label input {
+    width: auto;
+    margin-bottom: 0;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+}
+
+.btn-save {
+    background: #2c7da0;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 40px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-cancel {
+    background: #e2e8f0;
+    color: #1e293b;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 40px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* ===== ТЁМНАЯ ТЕМА ===== */
+body.dark-mode {
+    background: #0f172a;
+}
+
+body.dark-mode h1,
+body.dark-mode .stat-label,
+body.dark-mode .book-title {
+    color: #f1f5f9;
+}
+
+body.dark-mode .stat-card,
+body.dark-mode .book-card,
+body.dark-mode .filter-select,
+body.dark-mode .modal-content {
+    background: #1e293b;
+    color: #e2e8f0;
+    border-color: #334155;
+}
+
+body.dark-mode .stat-number {
+    color: #5ee0fa;
+}
+
+body.dark-mode .book-author,
+body.dark-mode .book-stats {
+    color: #94a3b8;
+}
+
+body.dark-mode .status-btn {
+    background: #334155;
+    color: #e2e8f0;
+}
+
+body.dark-mode .status-btn.active {
+    background: #2c7da0;
+}
+
+body.dark-mode .dropdown-actions {
+    background: #1e293b;
+}
+
+body.dark-mode .dropdown-actions button:hover {
+    background: #334155;
+}
+
+body.dark-mode .menu-dots-btn:hover {
+    background: #334155;
+}
+
+body.dark-mode .btn-cancel {
+    background: #334155;
+    color: #e2e8f0;
+}
+
+body.dark-mode .close {
+    color: #94a3b8;
+}
+
+body.dark-mode .close:hover {
+    color: #f1f5f9;
+}
+
+/* ===== АДАПТИВ ===== */
+@media (max-width: 640px) {
+    .fab {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .btn-add {
+        display: none;
+    }
+
+    .books-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .status-btn {
+        font-size: 0.65rem;
+    }
+}
